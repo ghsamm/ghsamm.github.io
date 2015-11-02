@@ -1,9 +1,176 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>COMING SOON</title>
-    </head>
-    <body>
-        1 DAY TO GO... STAY TUNED
-    </body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1"><meta name="generator" content="DocPad v6.78.4" />
+<link  rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,800.css" /><link  rel="stylesheet" href="/css/style.css" /><title>ghsamm</title></head><body><div class="header"><div class="site-title">ghsamm</div><div class="site-links"><a href="/posts" class="btn">Posts</a><a href="/" class="btn">Home</a><a href="/contact" class="btn">Contact</a></div></div><div class="article"><div class="content"><div class="post"><a href="/posts/intro-to-javascript" class="title"><h1>Introduction to javascript</h1></a><div class="post-content"><h2 id="comments">Comments</h2>
+<p>comments in javascript are similar to many other languages</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-comment">// this is a one-line comments</span>
+<span class="hljs-comment">/*
+    and this is a multi-line comment
+*/</span>
+</code></pre>
+<h2 id="input-output">Input/Output</h2>
+<p>Input/Output in javascript can mean a multitude of things depending on the environment you work on
+( browser, server, REPL... )</p>
+<p>The de facto output operation is <code>console.log</code>, alternatively, you can use <code>alert</code></p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-number">5</span>)
+<span class="hljs-comment">// -&gt; 5</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'one'</span>)
+<span class="hljs-comment">// -&gt; one</span>
+</code></pre>
+<p>As for input, when in browser, you should always use some HTML to ask a user for input,
+but if you&#39;re just trying things out, you can use <code>window.prompt</code>( aka. <code>prompt</code> )</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">var</span> a = prompt(<span class="hljs-string">'give me something'</span> <span class="hljs-comment">/* this is the message the user will see */</span>)
+<span class="hljs-built_in">console</span>.log(a)
+<span class="hljs-comment">// the result will be whatever your write to the prompt</span>
+</code></pre>
+<h2 id="basic-operations">Basic operations</h2>
+<h3 id="boolean-operations">Boolean operations</h3>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-literal">true</span>,
+    b = <span class="hljs-literal">false</span>
+<span class="hljs-built_in">console</span>.log(!a) <span class="hljs-comment">// negation</span>
+<span class="hljs-comment">// -&gt; false</span>
+<span class="hljs-built_in">console</span>.log(a &amp;&amp; b) <span class="hljs-comment">// logical AND</span>
+<span class="hljs-comment">// -&gt; false</span>
+<span class="hljs-built_in">console</span>.log(a || b) <span class="hljs-comment">// logical OR</span>
+<span class="hljs-comment">// -&gt; true</span>
+</code></pre>
+<h3 id="mathematic-operations">Mathematic operations</h3>
+<p>Nothing special here, like most other languages :</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-number">5</span> + <span class="hljs-number">3</span>) <span class="hljs-comment">// addition</span>
+<span class="hljs-comment">// -&gt; 8</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-number">3</span> - <span class="hljs-number">5</span>) <span class="hljs-comment">// subtraction</span>
+<span class="hljs-comment">// -&gt; -2</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-number">3</span> * <span class="hljs-number">4</span>) <span class="hljs-comment">// multiplication</span>
+<span class="hljs-comment">// -&gt; 12</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-number">12</span> / <span class="hljs-number">7</span>) <span class="hljs-comment">// division</span>
+<span class="hljs-comment">// -&gt; 1.7142857142857142</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-number">13</span> % <span class="hljs-number">5</span>) <span class="hljs-comment">// modulus (division remainder)</span>
+<span class="hljs-comment">// -&gt; 3</span>
+<span class="hljs-keyword">var</span> a = <span class="hljs-number">0</span>
+<span class="hljs-built_in">console</span>.log(a++, a) <span class="hljs-comment">// increment after, similar to decrement after ( a-- )</span>
+<span class="hljs-comment">// -&gt; 0 1</span>
+<span class="hljs-built_in">console</span>.log(++a, a) <span class="hljs-comment">// increment before, similar to decrement after ( --a )</span>
+<span class="hljs-comment">// -&gt; 2 2</span>
+</code></pre>
+<h3 id="string-operations">String operations</h3>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'aa'</span> + <span class="hljs-string">'bb'</span>) <span class="hljs-comment">// string concatenation</span>
+<span class="hljs-comment">// -&gt; aabb</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-number">20</span> + <span class="hljs-string">'10'</span>) <span class="hljs-comment">// Caution! this is implicit coercion, a language feature that many consider a bug, you decide</span>
+<span class="hljs-comment">// -&gt; 2010</span>
+</code></pre>
+<h3 id="coercion">Coercion</h3>
+<p>Type coercion (casting) can be performed in few ways, here is the simplest.
+<code>typeof</code> is a keyword we use to determine the type of the current value in a variable.</p>
+<pre class="highlight"><code class="hljs stylus"><span class="hljs-tag">var</span> <span class="hljs-tag">a</span> = <span class="hljs-number">5</span>
+console.<span class="hljs-function"><span class="hljs-title">log</span><span class="hljs-params">(typeof a)</span></span>
+<span class="hljs-comment">// -&gt; number</span>
+<span class="hljs-tag">a</span> = <span class="hljs-string">''</span> + <span class="hljs-number">5</span>
+console.<span class="hljs-function"><span class="hljs-title">log</span><span class="hljs-params">(typeof a)</span></span>
+<span class="hljs-comment">// -&gt; string</span>
+<span class="hljs-tag">var</span> <span class="hljs-tag">b</span>  = <span class="hljs-string">'20'</span>
+console.<span class="hljs-function"><span class="hljs-title">log</span><span class="hljs-params">(typeof b)</span></span>
+<span class="hljs-comment">// -&gt; string</span>
+<span class="hljs-tag">b</span> = +<span class="hljs-tag">b</span>
+console.<span class="hljs-function"><span class="hljs-title">log</span><span class="hljs-params">(typeof b)</span></span>
+<span class="hljs-comment">// -&gt; number</span>
+</code></pre><h2 id="-var-let-and-const-"><em>var</em>, <em>let</em> and <em>const</em></h2>
+<p>To declare a new variable in javascript you have two options : <code>var</code> and <code>let</code>.</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-number">5</span>
+<span class="hljs-keyword">var</span> A = -<span class="hljs-number">8</span>
+<span class="hljs-keyword">let</span> b = <span class="hljs-number">8</span>
+<span class="hljs-built_in">console</span>.log(a, A, b, a + b)
+<span class="hljs-comment">// -&gt; 5 -8 8 13</span>
+</code></pre>
+<p>Javascript is a case-sensetive language so the variable <code>a</code> is a totally different variable from <code>A</code>.</p>
+<p>Although <code>var</code> and <code>let</code> might appear similar at first glance, they behave differently on more advanced
+scenarios. More on that later.</p>
+<p>A constant on the other hand is an immutable &quot;variable&quot;, its value can not change
+( if the constant is an object however, its content can be changed but not its address, this has to do with
+the nature of objects in javascript ).</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">const</span> a = <span class="hljs-number">5</span>
+a = <span class="hljs-number">55</span>
+<span class="hljs-built_in">console</span>.log(a)
+<span class="hljs-comment">// -&gt; 5</span>
+</code></pre>
+<h2 id="primitive-types-and-objects">Primitive types and objects</h2>
+<p>Javascript is a loosely-types language which means any variable could have any type of content
+at any given time</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-number">5</span> <span class="hljs-comment">// type : Number</span>
+<span class="hljs-comment">// later</span>
+a = <span class="hljs-string">'sam'</span> <span class="hljs-comment">// type : String</span>
+<span class="hljs-comment">// even later</span>
+a = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>() <span class="hljs-comment">// type : Date object</span>
+</code></pre>
+<p>Here is a list of all primitive types in javascript :</p>
+<ul>
+<li><code>boolean</code> : the simplest type, a boolean can either be <code>true</code> or <code>false</code>.
+That said, in javascript, any variable can be &quot;truthy&quot; or &quot;falsy&quot; :</li>
+</ul>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-comment">// you can coerce any variable to boolean to see whether or not it's truthy using `!!`</span>
+<span class="hljs-keyword">var</span> a = <span class="hljs-number">0</span>, b = <span class="hljs-number">1</span>, c = <span class="hljs-literal">Infinity</span>, d = <span class="hljs-string">''</span>, e = <span class="hljs-string">'e'</span>, f = [], g = [<span class="hljs-number">0</span>]
+<span class="hljs-built_in">console</span>.log(!!a, !!b, !!c, !!d, !!e, !!f, !!g)
+<span class="hljs-comment">// -&gt; false true true false true true true</span>
+</code></pre>
+<p>Confused? no need to worry, at the exception of these values, everything is truthy :
+<code>0</code>, <code>NaN</code>, <code>&#39;&#39;</code>, <code>null</code>, <code>undefined</code>, <code>false</code></p>
+<ul>
+<li><code>nubmer</code> : a number can be an integer, a float, Infinity or NaN (Not a Number) :</li>
+</ul>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-number">5</span> + <span class="hljs-number">1</span>)
+<span class="hljs-comment">// -&gt; 6</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-number">5</span>/<span class="hljs-number">0</span>, -<span class="hljs-number">5</span>/<span class="hljs-number">0</span>)
+<span class="hljs-comment">// -&gt; Infinity -Infinity</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-number">0.1</span> + <span class="hljs-number">0.2</span>)
+<span class="hljs-comment">// -&gt; 0.30000000000000004</span>
+<span class="hljs-comment">// what !? This is actually a language bug, one of many others you'll encounter.</span>
+<span class="hljs-comment">// It has to do with how numbers are saved in memory</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'f'</span> / <span class="hljs-number">2</span>, <span class="hljs-number">0</span>/<span class="hljs-number">0</span>, <span class="hljs-string">'a'</span> - <span class="hljs-string">'m'</span>)
+<span class="hljs-comment">// -&gt; Nan NaN NaN</span>
+<span class="hljs-comment">// As you can see, NaN represents the result of a bad mathematic operation</span>
+</code></pre>
+<ul>
+<li><code>string</code> : a string of characters</li>
+</ul>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-string">''</span> <span class="hljs-comment">// empty string</span>
+a = <span class="hljs-string">'a'</span> <span class="hljs-comment">// one character</span>
+<span class="hljs-keyword">var</span> b = <span class="hljs-number">5</span>
+<span class="hljs-built_in">console</span>.log(a.toUpperCase())
+<span class="hljs-comment">// A</span>
+a = ` Over multiple lines
+using backticks as string delimiter instead of quotes
+`
+a = `you can use string interpolation as such : b = ${b}`
+<span class="hljs-built_in">console</span>.log(a)
+<span class="hljs-comment">// -&gt; you can use string interpolation as such : b = 5</span>
+</code></pre>
+<ul>
+<li><code>undefined</code> : this primitive type represents an empty variable, a newly created variable has this
+default value</li>
+</ul>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">var</span> a
+<span class="hljs-built_in">console</span>.log(a)
+<span class="hljs-comment">// -&gt; undefined</span>
+</code></pre>
+<h2 id="functions-arrow-functions-and-scope">Functions, arrow functions and scope</h2>
+<h2 id="context">context</h2>
+<h2 id="classes">classes</h2>
+</div><hr/></div><div class="post"><a href="/posts/welcome" class="title"><h1>First post : Welcome to my blog</h1></a><div class="post-content"><h2 id="who-am-i-">Who am I?</h2>
+<p>Hi, I am Samh Ghanmi, a Tunisian computer science student interested in Web development
+and especially anything and everything related to javascript</p>
+<h2 id="what-is-this-blog-for-">What is this blog for?</h2>
+<p>javascript. Mainly. I would call it Web development but when it comes down to it, it&#39;s basically
+all somehow related to javascript in some form or another.</p>
+<p>the following are some of the technologies I plan to cover in later posts:</p>
+<ul>
+<li>javascript; of course, especially the new version ES2015</li>
+<li>node.js; this language single-handedly made javascript invade everything : servers, robots,
+mobile apps, ...</li>
+<li>git &amp; github; these two separate technologies lead version controlling systems</li>
+<li>angular2; the next iteration of my favorite MVC (technically, it&#39;s MV*)</li>
+</ul>
+<p>this is just a broad overview of things i will talk about but it&#39;s in no way exclusive nor complete</p>
+<h2 id="how-i-did-it-">How I did it?</h2>
+<p>I&#39;ll write a post about it but long story short, it&#39;s a free-hosted website on github
+powered by a static site generator. Wait for the post for more details</p>
+<h2 id="is-that-it-">Is that it ?</h2>
+<p>I know it&#39;s a short post but it&#39;s the first of many so I&#39;ll probably write longer ones in the future.
+Stay tuned</p>
+</div><hr/></div></div></div><div class="footer">Samh Ghanmi | 2015</div><script defer="defer"  src="/js/script.js"></script></body></html>
